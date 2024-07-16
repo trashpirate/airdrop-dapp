@@ -8,10 +8,34 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ["mistral-mn", "sans-serif"], // Or ['CustomFont', 'sans-serif'] for local fonts
+      },
+      screens: {
+        xxs: "274px",
+        xs: "465px",
+        "3xl": "1800px",
+      },
+      boxShadow: {
+        "inner-sym": "inset 0px 0px 5px 0px #FF6B10",
+      },
+      dropShadow: {
+        text: "2px 2px 2px #FF6B10",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-pattern": "url('/banner.jpg')",
+      },
+      colors: {
+        bgColor: "#060c08",
+        textColor: "#fff",
+        primary: "#2F34EA",
+        secondary: "#adf1a0",
+        bgNavButton: "#fff",
+        textNavButton: "#000",
+        hoverNavButton: "#000",
+      },
+      flex: {
+        flexMain: "1 0 auto",
       },
     },
   },

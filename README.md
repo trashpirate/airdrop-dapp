@@ -1,4 +1,4 @@
-# TOUCH GRASSY DAPP 🌿
+# AIRDROP DAPP 🌿
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge)
 ![Node](https://img.shields.io/badge/node-v12.22.9-blue.svg?style=for-the-badge)
@@ -7,7 +7,7 @@
 ![Tailwindcss](https://img.shields.io/badge/TailwindCSS-v3.4.1-blue?style=for-the-badge)
 ![Wagmi](https://img.shields.io/badge/Wagmi-v2.8.0-blue?style=for-the-badge)
 ![Viem](https://img.shields.io/badge/Viem-v2.9.31-blue?style=for-the-badge)
-[![License: MIT](https://img.shields.io/github/license/trashpirate/grass-nft-dapp?style=for-the-badge)](https://github.com/trashpirate/grass-nft-dapp/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/github/license/trashpirate/airdrop-dapp?style=for-the-badge)](https://github.com/trashpirate/airdrop-dapp/blob/main/LICENSE)
 
 [![Website: nadinaoates.com](https://img.shields.io/badge/Portfolio-00e0a7?style=for-the-badge&logo=Website)](https://nadinaoates.com)
 [![LinkedIn: nadinaoates](https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=LinkedIn&logoColor=f5f5f5)](https://linkedin.com/in/nadinaoates)
@@ -34,24 +34,31 @@
   </ol>
 </details>
 
-### ✨ [DApp](https://app.touchbasedgrass.com)
+### ✨ [DApp](https://airdrop.buyholdearn.com)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-![TouchGrassy](https://app.touchbasedgrass.com/title.png?raw=true)
 
 This repository contains the code of a minting dapp developed for the NFT collection [Touch Grassy](https://opensea.io/collection/touch-grassy).
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Contracts on BASE TESTNET
+
+#### Fee Token on Testnet  
+https://sepolia.basescan.org/token/0x714e4e99125c47bd3226d8b644c147d3ff8e1e3b
+
+#### Airdrop Token on Testnet  
+https://sepolia.basescan.org/token/0xd8a3d75aa2db08bcefc67cde9cd2b51b981153e1
+
+#### Airdrop Contract on Testnet  
+https://sepolia.basescan.org/address/0xf1b8489f2e119dd023f19984de533f95ff28ecee
+
 ### Contracts on BASE MAINNET
 
-#### TOKEN Contract Mainnet  
-https://basescan.org/address/0xBb4f69A0FCa3f63477B6B3b2A3E8491E5425A356
+#### FEE TOKEN Contract Mainnet  
 
 #### NFT Contract Mainnet
-https://basescan.org/address/0xe9e5d3f02e91b8d3bc74cf7cc27d6f13bdfc0bb6
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -60,11 +67,11 @@ https://basescan.org/address/0xe9e5d3f02e91b8d3bc74cf7cc27d6f13bdfc0bb6
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/trashpirate/grass-nft-dapp.git
+   git clone https://github.com/trashpirate/airdrop-dapp.git
    ```
 2. Navigate to the project directory
    ```sh
-   cd grass-nft-dapp
+   cd airdrop-dapp
    ```
 3. Install NPM packages
    ```sh
@@ -90,7 +97,7 @@ NEXT_PUBLIC_ENABLE_TESTNET=true # toggles to use testnet configuration or mainne
 # smart contract configs (toggle these to switch between testnet and mainnet)
 NEXT_PUBLIC_RPC_URL="RPC URL" # e.g. https://www.ankr.com/ or  https://www.alchemy.com/ (depends on chains and your preference)
 NEXT_PUBLIC_TOKEN_CONTRACT="Contract Address"
-NEXT_PUBLIC_NFT_CONTRACT="Contract Address"
+NEXT_PUBLIC_AIRDROP_CONTRACT="Contract Address"
 ```
 
 
@@ -138,7 +145,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nadina Oates - [@N0_crypto](https://twitter.com/N0_crypto)
 
-Main Repository: [https://github.com/trashpirate/liquid-nfts](https://github.com/trashpirate/liquid-nfts)
+Contract Repository: [https://github.com/trashpirate/airdrop-contract](https://github.com/trashpirate/airdrop-contract)
 
 Project Link: [https://app.touchbasedgrass.com/](https://app.touchbasedgrass.com/)
 

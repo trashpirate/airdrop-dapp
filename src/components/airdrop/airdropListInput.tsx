@@ -14,7 +14,7 @@ export default function AirdropListInput({ value, handler }: Props) {
                            whitespace-pre-wrap break-words"
                 value={value}
                 onChange={handler}
-                placeholder="Enter airdrop list (ONE entry per line: address,amount)"
+                placeholder="Enter wallets and amounts (ONE entry per line: address,amount)"
             />
         </div>
     )

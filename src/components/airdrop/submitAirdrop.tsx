@@ -309,7 +309,7 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="aspect-square flex flex-col justify-between w-screen max-w-xs transform overflow-hidden rounded-2xl text-white bg-white/20 backdrop-blur p-6 xxs:p-10 text-center align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="aspect-square flex flex-col justify-between w-screen max-w-xs transform overflow-hidden rounded-2xl text-white bg-primary/80 backdrop-blur p-6 xxs:p-10 text-center align-middle shadow-xl transition-all">
                                     <div className='h-full w-full flex flex-col justify-between'>
                                         <Dialog.Title
                                             as="h3"
@@ -319,12 +319,12 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
                                             {isApproving && !showError && <div>Approving Tokens</div>}
                                             {showError && <div>Error</div>}
                                         </Dialog.Title>
-                                        <div className="mt-2 text-xs sm:text-sm text-white">
+                                        <div className="mt-2 text-xs sm:text-base text-white">
                                             {isApproving && approvePending && <p>{`Approve ${getTokenNumberString(amountToApprove, tokenToApprove)} in your wallet.`}</p>}
                                             {isApproving && isConfirmingApprove && <p>{`Approving ${getTokenNumberString(amountToApprove, tokenToApprove)}...`}</p>}
                                             {isAirdropping && airdropPending && <div><p>Confirm transaction in your wallet.</p></div>}
                                             {isAirdropping && isConfirmingAirdrop && <p>Airdropping your tokens...</p>}
-                                            {isAirdropping && isConfirmedAirdrop && <div><p >Airdrop Successful!</p></div>}
+                                            {isAirdropping && isConfirmedAirdrop && <div><p >Airdrop Successful!</p><a className='my-2 font-semibold text-secondary cursor-pointer hover:underline hover:underline-offset-2' target='_blank' href={`https://basescan.org/tx/${airdropHash}`}>Transaction</a></div>}
                                             {showError && <p className='text-secondary'>{errorMessage}</p>}
 
                                         </div>

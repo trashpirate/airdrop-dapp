@@ -63,7 +63,7 @@ https://basescan.org/token/0x803b629c339941e2b77d2dc499dac9e1fd9eac66
 https://basescan.org/address/0xcd8946dda83af26e817579a40587efec05aec45b
 
 ### Airdrop Contract Mainnet
-https://basescan.org/address/0x09f34e73c447dba21f28c8526de70ec26496ed88
+https://basescan.org/address/0x8A0625F75A18f045057B59CE19fF83E7F03c6Dba
 
 <!-- GETTING STARTED -->
 ## Getting Started

@@ -153,10 +153,26 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
             functionName: "getAirdropFee",
         });
 
+        // read token fee
+        const excludedFromFee = await readContract(config, {
+            ...airdropContract,
+            functionName: "isExcluded",
+            args: [address as `0x${string}`],
+        });
+
+
+
+        let sufficientFeeBalance: boolean;
+        let feeTokenApproved: boolean;
+        if (excludedFromFee) {
+            sufficientFeeBalance = true;
+            feeTokenApproved = true;
+        }
+        else {
+            [sufficientFeeBalance, feeTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropFee, FEE_TOKEN_CONTRACT);
+        }
+
         const [sufficientAirdropBalance, airdropTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropAmount, airdropToken);
-
-        const [sufficientFeeBalance, feeTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropFee, FEE_TOKEN_CONTRACT);
-
 
         if (!sufficientFeeBalance || !sufficientAirdropBalance) {
             setErrorMessage(`You have insufficient token balance.`);

@@ -56,9 +56,14 @@ https://sepolia.basescan.org/address/0xf1b8489f2e119dd023f19984de533f95ff28ecee
 
 ### Contracts on BASE MAINNET
 
-#### FEE TOKEN Contract Mainnet  
+### TOKEN Contract on Mainnet  
+https://basescan.org/token/0x803b629c339941e2b77d2dc499dac9e1fd9eac66
 
-#### NFT Contract Mainnet
+### Airdrop Token on Mainnet  
+https://basescan.org/address/0xcd8946dda83af26e817579a40587efec05aec45b
+
+### Airdrop Contract Mainnet
+https://basescan.org/address/0x09f34e73c447dba21f28c8526de70ec26496ed88
 
 <!-- GETTING STARTED -->
 ## Getting Started

@@ -10,7 +10,7 @@ export const FEE_TOKEN_CONTRACT = (
 export const AIRDROP_CONTRACT = (
   process.env.NEXT_PUBLIC_ENABLE_TESTNET == "true"
     ? "0xf1b8489f2e119dd023f19984de533f95ff28ecee"
-    : ""
+    : "0x09f34e73c447dba21f28c8526de70ec26496ed88"
 ) as `0x${string}`;
 
 export const PROJECT_URL = "https://airdrop.buyholdearn.com";

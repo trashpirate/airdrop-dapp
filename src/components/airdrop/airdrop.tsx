@@ -3,12 +3,14 @@ import { config } from '@/lib/config';
 import { useState } from 'react';
 import { parseUnits } from 'viem';
 import { readContract } from 'wagmi/actions';
+import { ConnectKitButton } from 'connectkit';
+
 import Preview from './preview';
 import AirdropListInput from './airdropListInput';
 import TokenAddressInput from './tokenAddressInput';
 import RegularButton from '../buttons/regularButton';
 import SubmitAirdrop from './submitAirdrop';
-import { ConnectKitButton } from 'connectkit';
+
 import { FEE_TOKEN_CONTRACT } from '@/lib/metadata';
 
 

@@ -1,5 +1,5 @@
-import NavButton from "./buttons/navButton";
 import { FEE_TOKEN_CONTRACT } from "@/lib/metadata";
+import NavButton from "./buttons/navButton";
 
 type Props = {};
 

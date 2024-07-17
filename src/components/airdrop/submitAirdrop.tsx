@@ -1,6 +1,8 @@
 
 import { tokenABI } from '@/assets/tokenABI';
+import { airdropABI } from '@/assets/airdropABI';
 import { config } from '@/lib/config';
+
 import { Dialog, Transition } from '@headlessui/react'
 import { MoonLoader } from 'react-spinners';
 import { Fragment, useEffect, useState } from 'react'
@@ -8,7 +10,7 @@ import { formatUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import { readContract, } from 'wagmi/actions';
 import Image from 'next/image';
-import { airdropABI } from '@/assets/airdropABI';
+
 import RegularButton from '../buttons/regularButton';
 
 import { AIRDROP_CONTRACT, FEE_TOKEN_CONTRACT } from '@/lib/metadata';

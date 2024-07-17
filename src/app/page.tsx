@@ -4,7 +4,6 @@ import Footer from '@/components/footer';
 import Airdrop from '@/components/airdrop/airdrop';
 import Navbar from '@/components/navbar';
 import Image from "next/image";
-import { ConnectKitButton } from 'connectkit';
 
 export default function Home() {
   return (

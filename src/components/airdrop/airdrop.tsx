@@ -1,7 +1,7 @@
 import { tokenABI } from '@/assets/tokenABI';
 import { config } from '@/lib/config';
 import { useState } from 'react';
-import { formatEther, formatUnits, parseUnits } from 'viem';
+import { parseUnits } from 'viem';
 import { readContract } from 'wagmi/actions';
 import Preview from './preview';
 import AirdropListInput from './airdropListInput';
@@ -9,9 +9,7 @@ import TokenAddressInput from './tokenAddressInput';
 import RegularButton from '../buttons/regularButton';
 import SubmitAirdrop from './submitAirdrop';
 import { ConnectKitButton } from 'connectkit';
-import assert from 'assert';
-
-const TOKEN_CONTRACT = process.env.NEXT_PUBLIC_FEE_TOKEN_CONTRACT as `0x${string}`;
+import { FEE_TOKEN_CONTRACT } from '@/lib/metadata';
 
 
 type Props = {};
@@ -28,7 +26,7 @@ function calcTotalAirdropAmount(amountArray: bigint[]): bigint {
 export default function Airdrop({ }: Props) {
     const [inputValue, setInputValue] = useState('');
     const [inputTokenValue, setInputTokenValue] = useState('');
-    const [tokenAddress, setTokenAddress] = useState<`0x${string}`>(TOKEN_CONTRACT);
+    const [tokenAddress, setTokenAddress] = useState<`0x${string}`>(FEE_TOKEN_CONTRACT);
     const [tokenSymbol, setTokenSymbol] = useState('');
     const [tokenDecimals, setTokenDecimals] = useState<number>(18);
     const [addresses, setAddresses] = useState<`0x${string}`[]>([]);

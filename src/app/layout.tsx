@@ -4,29 +4,31 @@ import { Providers } from "./providers";
 import { headers } from "next/headers";
 import { Inter } from "next/font/google";
 
+import { PROJECT_NAME, PROJECT_DESCRIPTION, PROJECT_DOMAIN, PROJECT_X, PROJECT_PREVIEW, PROJECT_URL } from "@/lib/metadata";
+
 const inter = Inter({ subsets: ["latin"] });
 
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_PROJECT_NAME,
-  description: process.env.NEXT_PUBLIC_PROJECT_DESCRIPTION,
-  applicationName: process.env.NEXT_PUBLIC_PROJECT_NAME,
+  title: PROJECT_NAME,
+  description: PROJECT_DESCRIPTION,
+  applicationName: PROJECT_NAME,
   twitter: {
     card: "summary_large_image",
-    site: "buyholdearn.com",
-    creator: "@buyholdearn",
-    images: "https://airdrop.buyholdearn.com/preview.jpg",
+    site: PROJECT_DOMAIN,
+    creator: PROJECT_X,
+    images: PROJECT_PREVIEW,
   },
   openGraph: {
     type: "website",
-    url: "https://airdrop.buyholdearn.com",
-    title: process.env.NEXT_PUBLIC_PROJECT_NAME,
+    url: PROJECT_URL,
+    title: PROJECT_NAME,
     description:
-      process.env.NEXT_PUBLIC_PROJECT_DESCRIPTION,
-    siteName: process.env.NEXT_PUBLIC_PROJECT_NAME,
+      PROJECT_DESCRIPTION,
+    siteName: PROJECT_NAME,
     images: [
       {
-        url: "https://airdrop.buyholdearn.com/preview.jpg",
+        url: PROJECT_PREVIEW,
       },
     ],
   },

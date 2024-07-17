@@ -1,19 +1,18 @@
+
 import { tokenABI } from '@/assets/tokenABI';
-import { config, isTestnet } from '@/lib/config';
+import { config } from '@/lib/config';
 import { Dialog, Transition } from '@headlessui/react'
 import { MoonLoader } from 'react-spinners';
 import { Fragment, useEffect, useState } from 'react'
-import { formatEther, formatUnits } from 'viem';
+import { formatUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
-import { getBalance, readContract, switchChain } from 'wagmi/actions';
+import { readContract, } from 'wagmi/actions';
 import Image from 'next/image';
-import { ConnectKitButton } from 'connectkit';
-import { base } from 'viem/chains';
 import { airdropABI } from '@/assets/airdropABI';
 import RegularButton from '../buttons/regularButton';
 
-const AIRDROP_CONTRACT = process.env.NEXT_PUBLIC_AIRDROP_CONTRACT as `0x${string}`;
-const TOKEN_CONTRACT = process.env.NEXT_PUBLIC_FEE_TOKEN_CONTRACT as `0x${string}`;
+import { AIRDROP_CONTRACT, FEE_TOKEN_CONTRACT } from '@/lib/metadata';
+
 
 // define token contract config
 const airdropContract = {
@@ -154,7 +153,7 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
 
         const [sufficientAirdropBalance, airdropTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropAmount, airdropToken);
 
-        const [sufficientFeeBalance, feeTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropFee, TOKEN_CONTRACT);
+        const [sufficientFeeBalance, feeTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropFee, FEE_TOKEN_CONTRACT);
 
 
         if (!sufficientFeeBalance || !sufficientAirdropBalance) {
@@ -180,11 +179,11 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
             approve(airdropToken, airdropAmount);
         }
         else {
-            const [symbol, decimals] = await getTokenInfo(TOKEN_CONTRACT);
+            const [symbol, decimals] = await getTokenInfo(FEE_TOKEN_CONTRACT);
             setTokenToApprove(symbol);
             setAmountToApprove(Number(formatUnits(airdropFee, decimals)));
             setIsApproving(true);
-            approve(TOKEN_CONTRACT, airdropFee);
+            approve(FEE_TOKEN_CONTRACT, airdropFee);
         }
     }
 

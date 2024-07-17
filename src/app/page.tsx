@@ -1,9 +1,10 @@
 
 "use client";
 import Footer from '@/components/footer';
-import InputTextField from '@/components/input/inputTextField';
+import Airdrop from '@/components/airdrop/airdrop';
 import Navbar from '@/components/navbar';
 import Image from "next/image";
+import { ConnectKitButton } from 'connectkit';
 
 export default function Home() {
   return (
@@ -21,9 +22,15 @@ export default function Home() {
             priority
           >
           </Image>
-          <div className='text-secondary mx-auto text-center my-8 max-w-4xl'>{process.env.NEXT_PUBLIC_PROJECT_DESCRIPTION}</div>
+          <div className='w-full flex justify-center mt-8 text-secondary'>
+            <div className='mx-auto'>
+              Airdrop Fee: 1000 EARN / 100 wallets
+            </div>
+
+          </div>
         </div>
-        <InputTextField></InputTextField>
+
+        <Airdrop></Airdrop>
       </div>
       <Footer></Footer>
     </main>

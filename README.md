@@ -1,4 +1,4 @@
-# AIRDROP DAPP 🌿
+# AIRDROP DAPP
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge)
 ![Node](https://img.shields.io/badge/node-v12.22.9-blue.svg?style=for-the-badge)
@@ -96,7 +96,7 @@ NEXT_PUBLIC_ENABLE_TESTNET=true # toggles to use testnet configuration or mainne
 
 # smart contract configs (toggle these to switch between testnet and mainnet)
 NEXT_PUBLIC_RPC_URL="RPC URL" # e.g. https://www.ankr.com/ or  https://www.alchemy.com/ (depends on chains and your preference)
-NEXT_PUBLIC_TOKEN_CONTRACT="Contract Address"
+NEXT_PUBLIC_FEE_TOKEN_CONTRACT="Contract Address"
 NEXT_PUBLIC_AIRDROP_CONTRACT="Contract Address"
 ```
 

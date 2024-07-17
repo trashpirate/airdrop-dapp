@@ -26,10 +26,10 @@ const config: Config = {
         "hero-pattern": "url('/banner.jpg')",
       },
       colors: {
-        bgColor: "#060c08",
+        bgColor: "#000000",
         textColor: "#fff",
         primary: "#2F34EA",
-        secondary: "#adf1a0",
+        secondary: "#5CBCEF",
         bgNavButton: "#fff",
         textNavButton: "#000",
         hoverNavButton: "#000",

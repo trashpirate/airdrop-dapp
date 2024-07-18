@@ -39,30 +39,32 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository contains the code of a minting dapp developed for the NFT collection [Touch Grassy](https://opensea.io/collection/touch-grassy).
+![Airdrop](https://airdrop.buyholdearn.com/title.png?raw=true)
+
+This repository contains the frontend code of a airdrop dApp to perform multi-send transactions.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Contracts on BASE TESTNET
 
-#### Fee Token on Testnet  
+**Fee Token on Testnet**  
 https://sepolia.basescan.org/token/0x714e4e99125c47bd3226d8b644c147d3ff8e1e3b
 
-#### Airdrop Token on Testnet  
+**Airdrop Token on Testnet**  
 https://sepolia.basescan.org/token/0xd8a3d75aa2db08bcefc67cde9cd2b51b981153e1
 
-#### Airdrop Contract on Testnet  
+**Airdrop Contract on Testnet**  
 https://sepolia.basescan.org/address/0xf1b8489f2e119dd023f19984de533f95ff28ecee
 
 ### Contracts on BASE MAINNET
 
-### TOKEN Contract on Mainnet  
+**Fee Token on Mainnet**  
 https://basescan.org/token/0x803b629c339941e2b77d2dc499dac9e1fd9eac66
 
-### Airdrop Token on Mainnet  
+**Airdrop Token on Mainnet**  
 https://basescan.org/address/0xcd8946dda83af26e817579a40587efec05aec45b
 
-### Airdrop Contract Mainnet
+**Airdrop Contract Mainnet**  
 https://basescan.org/address/0x8A0625F75A18f045057B59CE19fF83E7F03c6Dba
 
 <!-- GETTING STARTED -->
@@ -89,22 +91,16 @@ Before running any commands, create a .env file and add the following environmen
 
 ```bash
 # dapp configs
-NEXT_PUBLIC_PROJECT_NAME="Title"
 NEXT_PUBLIC_PROJECT_ID="Project Id from WalletConnect" # https://cloud.walletconnect.com/app
-NEXT_PUBLIC_PROJECT_DESCRIPTION="Description"
-NEXT_PUBLIC_TOKEN_SYMBOL="Token Symbol"
 
 # chain configs
 NEXT_PUBLIC_ALCHEMY_API_KEY=<your API key> # https://www.alchemy.com/
 
+# testing
 NEXT_PUBLIC_ENABLE_TESTNET=true # toggles to use testnet configuration or mainnet
-
-# smart contract configs (toggle these to switch between testnet and mainnet)
-NEXT_PUBLIC_RPC_URL="RPC URL" # e.g. https://www.ankr.com/ or  https://www.alchemy.com/ (depends on chains and your preference)
-NEXT_PUBLIC_FEE_TOKEN_CONTRACT="Contract Address"
-NEXT_PUBLIC_AIRDROP_CONTRACT="Contract Address"
 ```
 
+Also update the ```metadata.ts``` file in the ```src/lib``` folder with your project information.
 
 #### Run development server:
 
@@ -152,7 +148,7 @@ Nadina Oates - [@N0_crypto](https://twitter.com/N0_crypto)
 
 Contract Repository: [https://github.com/trashpirate/airdrop-contract](https://github.com/trashpirate/airdrop-contract)
 
-Project Link: [https://app.touchbasedgrass.com/](https://app.touchbasedgrass.com/)
+Project Link: [https://airdrop.buyholdearn.com/](https://airdrop.buyholdearn.com/)
 
 
 <!-- ACKNOWLEDGMENTS -->

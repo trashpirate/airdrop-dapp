@@ -89,7 +89,7 @@ export default function Airdrop({ }: Props) {
             const addressArray: `0x${string}`[] = [];
             const amountArray: bigint[] = [];
 
-            for (let i = 0; i < 200; i++) {
+            for (let i = 0; i < 500; i++) {
                 const [address, amount] = lines[i].split(',').map(item => item.trim());
                 if (address && amount) {
                     addressArray.push(address as `0x${string}`);

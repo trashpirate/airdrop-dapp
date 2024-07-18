@@ -177,13 +177,13 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
         const [sufficientAirdropBalance, airdropTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropAmount, airdropToken);
 
         if (!sufficientFeeBalance) {
-            setErrorMessage(`Insufficient token balance. You need ${getTokenNumberString(airdropFee, FEE_TOKEN_CONTRACT)} to airdrop.`);
+            setErrorMessage(`Insufficient token balance. You need ${await getTokenNumberString(airdropFee, FEE_TOKEN_CONTRACT)} to airdrop.`);
             setShowError(true);
             return;
         };
 
         if (!sufficientAirdropBalance) {
-            setErrorMessage(`Insufficient token balance. You need ${getTokenNumberString(airdropAmount, airdropToken)} to airdrop.`);
+            setErrorMessage(`Insufficient token balance. You need ${await getTokenNumberString(airdropAmount, airdropToken)} to airdrop.`);
             setShowError(true);
             return;
         };

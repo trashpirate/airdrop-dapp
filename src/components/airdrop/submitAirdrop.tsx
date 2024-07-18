@@ -107,8 +107,7 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
     let [isAirdropping, setIsAirdropping] = useState<boolean>(false);
     let [airdropCompleted, setAirdropCompleted] = useState<boolean>(false);
     let [airdropAmount, setAirdropAmount] = useState<bigint>(BigInt(0));
-    let [amountToApprove, setAmountToApprove] = useState<bigint>(BigInt(0));
-    let [tokenToApprove, setTokenToApprove] = useState<`0x${string}`>("0x0");
+    let [tokenToApproveString, setTokenToApproveString] = useState<string>("");
     let [showError, setShowError] = useState<boolean>(false);
     let [errorMessage, setErrorMessage] = useState<string>("An Error occured.");
 
@@ -198,14 +197,17 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
             airdrop();
         }
         else if (feeTokenApproved && !airdropTokenApproved) {
-            setTokenToApprove(airdropToken);
-            setAmountToApprove(airdropAmount);
+            const tokenString = await getTokenNumberString(airdropAmount, airdropToken);
+            if (tokenString !== undefined)
+                setTokenToApproveString(tokenString);
+
             setIsApproving(true);
             approve(airdropToken, airdropAmount);
         }
         else {
-            setTokenToApprove(FEE_TOKEN_CONTRACT);
-            setAmountToApprove(airdropFee);
+            const tokenString = await getTokenNumberString(airdropFee, FEE_TOKEN_CONTRACT);
+            if (tokenString !== undefined)
+                setTokenToApproveString(tokenString);
             setIsApproving(true);
             approve(FEE_TOKEN_CONTRACT, airdropFee);
         }
@@ -326,8 +328,8 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
                                             {showError && <div>Error</div>}
                                         </Dialog.Title>
                                         <div className="mt-2 text-xs sm:text-base text-white">
-                                            {isApproving && approvePending && <p>{`Approve ${getTokenNumberString(amountToApprove, tokenToApprove)} in your wallet.`}</p>}
-                                            {isApproving && isConfirmingApprove && <p>{`Approving ${getTokenNumberString(amountToApprove, tokenToApprove)}...`}</p>}
+                                            {isApproving && approvePending && <p>{`Approve ${tokenToApproveString} in your wallet.`}</p>}
+                                            {isApproving && isConfirmingApprove && <p>{`Approving ${tokenToApproveString}...`}</p>}
                                             {isAirdropping && airdropPending && <div><p>Confirm transaction in your wallet.</p></div>}
                                             {isAirdropping && isConfirmingAirdrop && <p>Airdropping your tokens...</p>}
                                             {isAirdropping && isConfirmedAirdrop && <div><p >Airdrop Successful!</p><a className='my-2 font-semibold text-secondary cursor-pointer hover:underline hover:underline-offset-2' target='_blank' href={`https://basescan.org/tx/${airdropHash}`}>Transaction</a></div>}

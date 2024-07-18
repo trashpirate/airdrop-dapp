@@ -36,7 +36,7 @@ export default function Preview({ addresses, amounts, totalAmount, tokenSymbol, 
                 <div className='w-12'>
                     <ol className="list-inside overflow-x-auto w-full text-nowrap font-light text-sm">
                         {addresses.map((address, index) => (
-                            <li key={index}>{index}</li>
+                            <li key={index}>{index + 1}</li>
                         ))}
                     </ol>
                 </div>

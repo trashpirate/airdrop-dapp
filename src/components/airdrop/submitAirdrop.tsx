@@ -6,7 +6,7 @@ import { config } from '@/lib/config';
 import { Dialog, Transition } from '@headlessui/react'
 import { MoonLoader } from 'react-spinners';
 import { Fragment, useEffect, useState } from 'react'
-import { formatUnits } from 'viem';
+import { formatEther, formatUnits } from 'viem';
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
 import { readContract, } from 'wagmi/actions';
 import Image from 'next/image';
@@ -23,12 +23,14 @@ const airdropContract = {
     config
 };
 
-function getTokenNumberString(amount: number, symbol: string) {
+async function getTokenNumberString(amount: bigint, tokenAddress: `0x${string}`) {
 
+    const [symbol, decimals] = await getTokenInfo(tokenAddress);
+    const decimalAmount = Number(formatUnits(amount, decimals));
     let text: string = "---";
     if (amount != null) {
 
-        text = `${amount.toLocaleString(undefined, {
+        text = `${decimalAmount.toLocaleString(undefined, {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
         })}${String.fromCharCode(8239)} ${symbol}`;
@@ -105,7 +107,7 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
     let [isAirdropping, setIsAirdropping] = useState<boolean>(false);
     let [airdropCompleted, setAirdropCompleted] = useState<boolean>(false);
     let [airdropAmount, setAirdropAmount] = useState<bigint>(BigInt(0));
-    let [amountToApprove, setAmountToApprove] = useState<number>(0);
+    let [amountToApprove, setAmountToApprove] = useState<bigint>(BigInt(0));
     let [tokenToApprove, setTokenToApprove] = useState<string>("");
     let [showError, setShowError] = useState<boolean>(false);
     let [errorMessage, setErrorMessage] = useState<string>("An Error occured.");
@@ -174,8 +176,14 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
 
         const [sufficientAirdropBalance, airdropTokenApproved] = await hasTokensApproved(address as `0x${string}`, airdropAmount, airdropToken);
 
-        if (!sufficientFeeBalance || !sufficientAirdropBalance) {
-            setErrorMessage(`You have insufficient token balance.`);
+        if (!sufficientFeeBalance) {
+            setErrorMessage(`Insufficient token balance. You need ${getTokenNumberString(airdropFee, FEE_TOKEN_CONTRACT)} to airdrop.`);
+            setShowError(true);
+            return;
+        };
+
+        if (!sufficientAirdropBalance) {
+            setErrorMessage(`Insufficient token balance. You need ${getTokenNumberString(airdropAmount, airdropToken)} to airdrop.`);
             setShowError(true);
             return;
         };
@@ -190,16 +198,14 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
             airdrop();
         }
         else if (feeTokenApproved && !airdropTokenApproved) {
-            const [symbol, decimals] = await getTokenInfo(airdropToken);
-            setTokenToApprove(symbol);
-            setAmountToApprove(Number(formatUnits(airdropAmount, decimals)));
+            setTokenToApprove(airdropToken);
+            setAmountToApprove(airdropAmount);
             setIsApproving(true);
             approve(airdropToken, airdropAmount);
         }
         else {
-            const [symbol, decimals] = await getTokenInfo(FEE_TOKEN_CONTRACT);
-            setTokenToApprove(symbol);
-            setAmountToApprove(Number(formatUnits(airdropFee, decimals)));
+            setTokenToApprove(FEE_TOKEN_CONTRACT);
+            setAmountToApprove(airdropFee);
             setIsApproving(true);
             approve(FEE_TOKEN_CONTRACT, airdropFee);
         }

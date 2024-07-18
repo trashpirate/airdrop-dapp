@@ -23,7 +23,7 @@ export default function Home() {
           </Image>
           <div className='w-full flex justify-center mt-8 text-secondary'>
             <div className='mx-auto'>
-              Airdrop Fee: 1000 EARN / 200 wallets
+              Airdrop Fee: 1000 EARN / 500 wallets
             </div>
 
           </div>

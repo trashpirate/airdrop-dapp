@@ -108,7 +108,7 @@ export default function SubmitAirdrop({ airdropInfo }: Props) {
     let [airdropCompleted, setAirdropCompleted] = useState<boolean>(false);
     let [airdropAmount, setAirdropAmount] = useState<bigint>(BigInt(0));
     let [amountToApprove, setAmountToApprove] = useState<bigint>(BigInt(0));
-    let [tokenToApprove, setTokenToApprove] = useState<string>("");
+    let [tokenToApprove, setTokenToApprove] = useState<`0x${string}`>("0x0");
     let [showError, setShowError] = useState<boolean>(false);
     let [errorMessage, setErrorMessage] = useState<string>("An Error occured.");
 
